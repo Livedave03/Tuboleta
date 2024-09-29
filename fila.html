@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fila</title>
+  <style>
+    body {
+      font-family: Helvetica, Futura, Arial, Verdana, sans-serif;
+      margin: 0;
+      background-image: url('img/fond.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      text-align: center;
+      overflow-x: hidden; /* Evitar scroll horizontal */
+    }
+
+    .container {
+      width: 93%;
+      max-width: 1000px;
+      background-color: white;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 50px auto;
+    }
+
+    .blo2 {
+      border-radius: 5px;
+      width: 100%;
+      height: auto;
+      border: 1px solid black;
+      margin-bottom: 20px;
+    }
+
+    .blo2 p {
+      padding: 20px;
+      margin: 0;
+    }
+
+    .PBouter {
+      margin: 20px auto;
+      position: relative;
+      background-color: #c60;
+      width: 80%;
+      max-width: 400px;
+      height: 15px;
+      border-radius: 8px;
+    }
+
+    .PBinner {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: calc(100% - 2px);
+      height: 13px;
+      background-color: lightgrey;
+      font-size: 1px;
+      border-radius: 6px;
+    }
+
+    .PBdone {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      height: 13px;
+      background-color: #c30;
+      width: 0%;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      .blo2 p {
+        padding: 15px;
+      }
+
+      .PBouter {
+        height: 12px;
+      }
+
+      .PBinner, .PBdone {
+        height: 10px;
+      }
+
+      body {
+        background-size: auto 100%; /* Ajustar el tamaño del fondo para pantallas pequeñas */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <br>
+  <center>
+    <div style=" text-align: left;width:90% ;">
+      <img width="250px" src="img/tubol.png" alt="Logo Tuboleta">
+    </div>
+  </center>
+
+  <div class="container">
+    <div style="text-align: left;">
+      <h2 style="font-weight: bold;">Bienvenido a la fila virtual de Tuboleta</h2>
+    </div>
+    <div class="blo2">
+      <p>Este es un control que se activa en momentos de alto tráfico. El tiempo de espera varía de acuerdo a la disponibilidad de boletas y los usuarios conectados. Cuando llegue tu turno se activará el botón continuar.</p>
+      <div style="text-align: center; font-weight: bold;">
+        <p>El tiempo estimado para el ingreso es<br><a id="timer">10 min 0 seg.</a></p>
+
+        <div class="PBouter">
+          <div class="PBinner"></div>
+          <div class="PBdone" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: left;" id="info">
+      <p>¡Hola! Ingresaste a la fila virtual de Tuboleta</p>
+      <p>Sabemos lo emocionado que estás por adquirir tus entradas. Para brindarte un mejor servicio, se activó la fila virtual permitiéndote avanzar de manera ordenada y disfrutar de una compra más eficiente y segura.</p>
+      <p>¡Trabajamos para que vivas la mejor experiencia!</p>
+      <p>#TuboletaContigo</p>
+    </div>
+  </div>
+
+  <div style="background-color: white;height: 50px;width: 101%;margin-top: -60px;height: 150px;margin-left: 1px;">
+  </div>
+
+  <script>
+    const progressBar = document.getElementById("progressBar");
+    const timerElement = document.getElementById("timer");
+
+    let initialCountdown = 10; // Initial countdown time in seconds
+    let countdownDuration = 10 * 60; // Total visual countdown (10 minutes) in seconds
+    let totalDuration = 1 * 60 * 1000; // Total duration for progress bar in milliseconds (1 minute)
+    let progress = 0;
+
+    // Initial 10-second countdown
+    function initialCountdownTimer() {
+      let secondsLeft = initialCountdown;
+
+      const countdownInterval = setInterval(() => {
+        let minutes = Math.floor((countdownDuration - secondsLeft) / 60);
+        let seconds = (countdownDuration - secondsLeft) % 60;
+        timerElement.textContent = `${minutes} min ${seconds} seg.`;
+
+        secondsLeft--;
+
+        if (secondsLeft < 0) {
+          clearInterval(countdownInterval);
+          startMainCountdown();
+        }
+      }, 1000);
+    }
+
+    // Start main countdown and progress bar
+    function startMainCountdown() {
+      countdownDuration = 2 * 60; // Update visual countdown to 2 minutes in seconds
+
+      const progressInterval = setInterval(() => {
+        progress += (100 / (totalDuration / 1000));
+        progressBar.style.width = progress + "%";
+
+        // Calculate remaining time visually (2 min countdown)
+        let remainingTime = Math.max(countdownDuration - (progress / 100) * countdownDuration, 0);
+        let minutes = Math.floor(remainingTime / 60);
+        let seconds = Math.floor(remainingTime % 60);
+
+        timerElement.textContent = `${minutes} min ${seconds} seg.`;
+
+        if (progress >= 100) {
+          clearInterval(progressInterval);
+          // Redirect to another page
+          window.location.href = "pago.html"; // Cambia esto a la URL deseada
+        }
+      }, totalDuration / 100);
+    }
+
+    // Start the initial countdown
+    initialCountdownTimer();
+  </script>
+
+</body>
+</html>

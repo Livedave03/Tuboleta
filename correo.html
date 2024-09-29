@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmaci&oacute;n de Compra - tuboleta.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #0071ce;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header img {
+            width: 150px;
+        }
+        .content {
+            padding: 30px;
+            color: #333;
+        }
+        .content h2 {
+            font-size: 22px;
+            color: #0071ce;
+            margin-bottom: 10px;
+        }
+        .content p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+        }
+        .footer a {
+            color: #0071ce;
+            text-decoration: none;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0071ce;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #002244;
+        }
+        .important {
+            background-color: #dac4c4;
+            padding: 20px;
+            border: 1px solid #caa3a3;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: #373737;
+        }
+    </style>
+    <style>
+        .keyword-info-container {
+            box-sizing: border-box;
+            width: 92%;
+            margin-bottom: 20px;
+            font-size: 12px;
+            border-bottom: 1px solid #dee1e5;
+            border: 1px solid #f1f3f4;
+            margin: 14px 16px;
+            border-radius: 2px;
+            padding: 20px;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+        body[data-dt="1"] .keyword-info-container,
+        html[dark] .keyword-info-container {
+            border-color: #3d4042;
+        }
+        .keyword-info-container .title {
+            color: #26282d;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .keyword-info-container .tabs {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            border-bottom: 1px solid #dee1e5;
+            margin-top: -10px;
+            padding: 0px 16px;
+            align-items: center;
+        }
+        .keyword-info-container .tabs.tip {
+            border-color: #f8b199 !important;
+            border-radius: 2px;
+            border: 1px solid;
+        }
+        .keyword-info-container .tabs li {
+            padding: 8px;
+            padding-left: 0;
+            color: #000;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .keyword-info-container .tabs li.small {
+            font-size: 10px;
+        }
+        .keyword-info-container .tabs li:last-child {
+            overflow: hidden;
+        }
+        .keyword-info-container .tabs li.active {
+            color: #4285f4;
+            margin: 20px 0;
+        }
+        table.keyword-info-table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #000;
+            font-size: 12px;
+            position: relative;
+        }
+        .keyword-info-table thead {
+            height: 50px;
+        }
+        .keyword-info-table th {
+            padding: 10px;
+            padding-left: 0;
+            font-weight: bold;
+            color: #000;
+            font-size: 12px;
+        }
+        .keyword-info-table th:first-child {
+            padding-left: 16px;
+        }
+        .keyword-info-table th:last-child {
+            padding-right: 0px;
+        }
+        .keyword-info-table td {
+            border-bottom: 1px solid #f1f3f4;
+            padding: 10px;
+            padding-left: 0;
+            height: 50px;
+            box-sizing: border-box;
+        }
+        .keyword-info-table tr {
+            border-bottom: 1px solid #f1f3f4;
+        }
+        body[data-dt="1"] .keyword-info-table td,
+        html[dark] .keyword-info-table td {
+            border-color: #3d4042;
+        }
+        body[data-dt="1"] .keyword-info-table tr,
+        html[dark] .keyword-info-table tr {
+            border-color: #3d4042;
+        }
+        body[data-dt="1"] .keyword-info-table tfoot tr,
+        body[data-dt="1"] .keyword-info-table tfoot td,
+        html[dark] .keyword-info-table tfoot tr,
+        html[dark] .keyword-info-table tfoot td {
+            border: none;
+        }
+        .keyword-info-table td:first-child {
+            padding-left: 16px;
+        }
+        .keyword-info-table td:last-child {
+            padding-right: 0px;
+        }
+        .keyword-info-table tfoot tr,
+        .keyword-info-table tfoot td {
+            border: none;
+        }
+        .ubersuggest-button {
+            color: #0086f7;
+            font-family: Figtree;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 29px;
+            padding: 8px 30px;
+            border: 1px solid #0086f7;
+            background-color: #fff;
+            border-radius: 2px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            margin: 4px;
+        }
+        .ubersuggest-logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 10px 10px 0 0;
+            font-weight: bold;
+            color: #26282d;
+        }
+        .ubersuggest-logo {
+            width: 182px;
+            height: 33px;
+            cursor: pointer;
+        }
+        .keyword-info-container .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 20px 16px;
+        }
+        .header h2 {
+            color: #000;
+            font-family: Figtree;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        html[dark] .keyword-info-container .title {
+            color: #fff;
+        }
+        html[dark] table.keyword-info-table {
+            color: #fff;
+        }
+        html[dark] .keyword-info-table th {
+            color: #fff;
+        }
+        html[dark] .keyword-info-table tfoot tr:last-child td .button-arrow {
+            border-color: #fff;
+        }
+        body[data-dt="1"] .keyword-info-container .title {
+            color: #fff;
+        }
+        body[data-dt="1"] .keyword-info-container .tabs {
+            border-color: rgba(255, 255, 255, 0.0509803922);
+        }
+        body[data-dt="1"] table.keyword-info-table {
+            color: #fff;
+        }
+        body[data-dt="1"] .keyword-info-table th {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div style="width: 450px; text-align: left;">
+            <div class="x_m_-8269542066527490121container">
+                <img style="width:100%" src="https://www.tuboleta.com/images/Tuboleta_Pass/assets/header-tbpass.jpg" data-imagetype="External">
+                <div class="x_m_-8269542066527490121text">
+                    <h3>&iexcl;Hola!</h3><br>
+                    <p>Es hora de prepararte para COLOMBIA vs CHILE aqu&iacute; tienes tus entradas para este evento a trav&eacute;s de Tuboleta Pass app!</p>
+                    <p>Todas las entradas son digitales y antes de asistir al evento, debes seguir estos sencillos pasos para descargarla:</p>
+                    <p></p>
+                    <ul>
+                        <li>Descarga o abre la aplicaci&oacute;n Tuboleta Pass e inicia sesi&oacute;n con tu direcci&oacute;n de correo electr&oacute;nico: <a href="" data-linkindex="2">kma9211@gmail.com</a></li>
+                        <li>Al iniciar sesi&oacute;n, debes aceptar tu(s) entrada(s) dentro de la aplicaci&oacute;n. El d&iacute;a del evento en la opci&oacute;n <b>Mis Entradas</b> en Tuboleta Pass.</li>
+                    </ul>
+                    <p></p><br>
+                    <p>Para obtener m&aacute;s informaci&oacute;n visita <b><a shash="YuT8PPgmeBasSLdvaLeKM4p8lROU1PITCE3FQoRQLhZ+jOeT9cLGzK3EKKZvAi3ru6fAcGj+BeOq1F2PiPCgeubGN5Vmm3CrO9EU6zkjKlHJCk73Aoz63+bVdOQPbaoULCHXIjXIGFwzHhVZVzCVumS2G0yM15oIx4TZXR2xQks=" originalsrc="https://www.tuboleta.com/pass/faq.html" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.tuboleta.com%2Fpass%2Ffaq.html&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178126826%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=rmj10MlxCGeqK%2BKQjiPJlXh9MsrCu702nNFv8XOA2A0%3D&amp;reserved=0" title="Protegido por Outlook: https://www.tuboleta.com/pass/faq.html. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="3">Preguntas Frecuentes.</a></b></p>
+                    <p>Esperamos verte en este espectacular evento que une a TODA COLOMBIA!.</p>
+                    <button>DESCARGAR AHORA</button><br><br>
+                    <p><i>Este es un correo electr&oacute;nico de servicio relacionado con su pedido de entradas. Incluso si no ha optado por recibir comunicaciones de marketing, seguir&aacute; recibiendo correos electr&oacute;nicos de servicio y transaccionales en relaci&oacute;n con su compra.</i></p><br>
+                </div>
+                <table class="x_m_-8269542066527490121contacto">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><a shash="v7iD0YKkqXD7KEZQsjBaq5I8gZYXB+DiuGfd1x/64LamfO+bRjsDQwwo+laYIkXiqGn2HmNgubz0RJ8+f00lNXZZ4nhhPTwDeTzAE8ENu+C+cnG3g9lKHiKuuJps7yucE2Cib6HRfTuiEuBcATAjAFkRVqwybeTDgNOvJDPduo8=" originalsrc="https://www.tuboleta.com/images/CMS/POLITICADEPRIVACIAD.html" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.tuboleta.com%2Fimages%2FCMS%2FPOLITICADEPRIVACIAD.html&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178191414%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=gMG4qoLr2mxLNN1OlEIbig4hLwj7PhY3t88v62JtEP8%3D&amp;reserved=0" title="Protegido por Outlook: https://www.tuboleta.com/images/CMS/POLITICADEPRIVACIAD.html. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="5">Protecci&oacute;n de datos personales</a> | <a shash="FUau2AmyluQm8pXVOuLWK3oSZmy5UyV0h/scFc9uHi8NPSjiaw5hwSCIGBgpkBsieiPAW/wSTG4f3JHV/VAwz/aOIkfL+ENvHRFRneOxMuAfq3iWSqXXJze/cLrXa2/AE18byaSzufhCI98QAOkoTW/VecngR8YZ8dQ0h2aJ+Yk=" originalsrc="https://all.checkout.tuboleta.com/account/login?noCreateAcct=true" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fall.checkout.tuboleta.com%2Faccount%2Flogin%3FnoCreateAcct%3Dtrue&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178208760%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=Ee%2Bv40jZvde0ud6o7uk%2B1P0dca5VFmQLRAXmbtpLeR4%3D&amp;reserved=0" title="Protegido por Outlook: https://all.checkout.tuboleta.com/account/login?noCreateAcct=true. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="6">Actualizar datos personales</a></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="R1UVb" style="height: 93px; width: 100%;">
+                    <div class="qF8_5">
+                        <button type="button" class="fui-Button r1alrhcs wD8TJ ___cpe5h10 f1c21dwh f1p3nwhy f11589ue f1q5o8ev f1pdflbu fkfq4zb fjxutwb f1s2uweq fr80ssc f1ukrpxl fecsdlb f139oj5f ft1hn21 fuxngvv fwiml72 f1h0usnq fs4ktlq f16h9ulv fx2bmrt f1fg1p5m f1dfjoow f1j98vj9 f1tme0vf f4xjyn1 f18onu3q f9ddjv3 f18ktai2 fwbmr0d f44c6la" title="Mostrar tama&ntilde;o original" aria-label="Mostrar tama&ntilde;o original"><span class="fui-Button__icon rywnvv2"><i class="fui-Icon-font ___1hzgx0x f14t3ns0 fne0op0 fkc42ay fmd4ok8 f1sxfq9t" fill="currentColor" aria-hidden="true"></i></span></button>
+                    </div>
+                    <table class="x_m_-8269542066527490121redes" min-scale="0.1580894719138917" style="transform: scale(0.158089, 0.158089); transform-origin: left top;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>S&iacute;guenos</p>
+                                </td>
+                                <td>
+                                    <p><a shash="RIgyb2e38da8t2JMZMn1fv9FM0tp3tVIg6FmM59d1WzKVm/YE5bE2/QxQb3zpI7mRCa5qRi8P3PWZPR98zzaYr5I5M5vMBmU9dO4IPaHYKPGYLVBfx7DVBs54kABww6mvvsUicuDQM0jtAJNTpEcWsRzndWGtfYHItZVaPmb8M8=" originalsrc="https://www.facebook.com/tuboleta/" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/unionairlinesgov/" title="Protegido por Outlook: https://www.facebook.com/tuboleta/. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="7"><img src="https://www.tuboleta.com/images/Assets_Doc/redes-03.png" data-imagetype="External"></a></p>
+                                </td>
+                                <td>
+                                    <p><a shash="ylnduV3JjVL/YDxS5E64WN6ORSJzo0ZAky/B2IfMCrHo6KKFmDqfNW6yisicBA1Gc5VnrwNvUFuf0wyob4PCGmyR2cmHkVr731K5pX+/gCuMBV13XGBlDcVk39fmnzJevIKHHnjHYaAJj9yt4+UVQmq+0V0iJnjYEa8kF49Eeqk=" originalsrc="https://www.instagram.com/tuboleta/" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.instagram.com%2Ftuboleta%2F&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178237084%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=oF8cqeJ9ePfCqnTaLq6HH4Y6hlU7%2Ff9smOGmQgF87go%3D&amp;reserved=0" title="Protegido por Outlook: https://www.instagram.com/tuboleta/. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="8"><img src="https://www.tuboleta.com/images/Assets_Doc/redes-04.png" data-imagetype="External"></a></p>
+                                </td>
+                                <td>
+                                    <p><a shash="eo6H4KZRyngCXZ8pylw5Ar6CHHOKiuvxliZjh1fpSSZ2SocR87bJtoY9p4hyXdMDRH5TgE4+be7dDJIs4H8cAl19rbPXgfva032Gd4XL1NbiMOcgdY8OOp+BsVINtrVg9zmYZuPw67srsZ74wxz4/N2ISiPuDGfB4w9DjbMAFW0=" originalsrc="https://twitter.com/TuBoletaNews" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Ftwitter.com%2FTuBoletaNews&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178248956%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=h6htSA0qcOnKQ3pUUlEKBO72%2Ba0UKqwDhx4UUJmnY3E%3D&amp;reserved=0" title="Protegido por Outlook: https://twitter.com/TuBoletaNews. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="9"><img src="https://www.tuboleta.com/images/Assets_Doc/redes-05.png" data-imagetype="External"></a></p>
+                                </td>
+                                <td>
+                                    <p><a shash="Ud0NqMiprPKPWHkfyQxVQhcWmuCPUl5Oj8Xyba4n38Vet1TP1Kk/GnfHKy+0/mGXlstZCKImoDt4eLnTHKK2rsLk0uU6/wPH3S/w5KXyXLUkBR2x5JUNVIbD11yyQ3iRmfJI7/GSjkm8QkfTn0G4+1eiIU5dk6EphMiyi+vCsOE=" originalsrc="https://www.youtube.com/user/TuBoletaColombia" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fuser%2FTuBoletaColombia&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178261506%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=rqzwWmkFcuZSZGrjwQoWSO1fDXxap9o5NaC2Cci7vcQ%3D&amp;reserved=0" title="Protegido por Outlook: https://www.youtube.com/user/TuBoletaColombia. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="10"><img src="https://www.tuboleta.com/images/Assets_Doc/redes-06.png" data-imagetype="External"></a></p>
+                                </td>
+                                <td>
+                                    <p><a shash="ptG3uZhXsM6zT8d8uNCrMizf7JhOD+EGcQcpLfNOPFROcYuReJV6qRn+xhqFvUcR3AMdzlkO8fX+rd8xnQmbldXyc1G/NGWSlCp3g9iOyBY3qEWyFCKVRBIoBqSqEM3xH78dLFRZ07pTxlh65OV2jl2ur9IJikhk0zGKH8Y5tNA=" originalsrc="https://www.tiktok.com/@tuboleta?_t=8UyVrzoAL7F&amp;_r=1" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.tiktok.com%2F%40tuboleta%3F_t%3D8UyVrzoAL7F%26_r%3D1&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178275293%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=6Ey1eCq7GtdNoYJoykiB1JB%2F2grEx6RjfpHtPIxrfDQ%3D&amp;reserved=0" title="Protegido por Outlook: https://www.tiktok.com/@tuboleta?_t=8UyVrzoAL7F&amp;_r=1. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="11"><img src="https://www.tuboleta.com/images/Assets_Doc/redes-08.png" data-imagetype="External"></a></p>
+                                </td>
+                                <td>
+                                    <p><a shash="V1cd+UsulhZvNJZ26lKUvauwSJvLcQaui8KxLt4rAB6LeSmuR0It7YtXKr2KiwLW48jXyNbSud9OOxk1fpYUWZ70oOV/VtLY1/p/QCiQHKO2uWW/mFGWHm4QyBna6ZIAog2SdT5kL1Vtp1hsAZvKbObG+jCAgiMQKw6PkrRXpbM=" originalsrc="https://www.linkedin.com/company/tuboleta-colombia/" data-auth="Verified" rel="noopener noreferrer" target="_blank" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Ftuboleta-colombia%2F&amp;data=05%7C02%7C%7C92fabead8a1d493658bf08dcde72681d%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638629830178287867%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=mlIar2l3z0UjIi3ZEVRrL%2BUvTb9GeyBpmoGLKp14vrE%3D&amp;reserved=0" title="Protegido por Outlook: https://www.linkedin.com/company/tuboleta-colombia/. Haga clic o pulse para seguir el v&iacute;nculo." data-linkindex="12"><img src="https://www.tuboleta.com/images/Assets_Doc/redes-07.png" data-imagetype="External"></a></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>
